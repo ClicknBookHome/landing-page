@@ -25,21 +25,21 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-const handleNavClick = (sectionId) => {
-  setIsMenuOpen(false);
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-  // else: silently ignore (no toast)
-};
+  const handleNavClick = (sectionId) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // else: silently ignore (no toast)
+  };
 
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <motion.div 
+          <motion.div
             className="flex items-center gap-2 cursor-pointer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -49,7 +49,10 @@ const handleNavClick = (sectionId) => {
             <div className="w-10 h-10 bg-[#FFDD32] rounded-lg flex items-center justify-center shadow-sm">
               <Home className="w-6 h-6 text-gray-900" />
             </div>
-            <span className="text-2xl font-bold text-gray-900">ClickN<span className="text-[#FFDD32]">Book</span></span>
+            <span className="text-2xl font-bold text-gray-900">
+              ClickN<span className="text-[#FFDD32]">Book</span>Home
+            </span>
+
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -57,26 +60,26 @@ const handleNavClick = (sectionId) => {
             <button onClick={() => handleNavClick('services')} className="text-gray-700 hover:text-[#FFDD32] font-medium transition-colors">Services</button>
             <button onClick={() => handleNavClick('about')} className="text-gray-700 hover:text-[#FFDD32] font-medium transition-colors">About</button>
             <button onClick={() => handleNavClick('app-download')} className="text-gray-700 hover:text-[#FFDD32] font-medium transition-colors">Mobile App</button>
-            
+
             <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
-               <Button variant="ghost" className="font-semibold text-gray-700 hover:text-gray-900">Sign In</Button>
-               <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="bg-[#FFDD32] text-gray-900 hover:bg-[#FFE865] font-bold shadow-sm">
-                      List Property
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>List Your Property</DialogTitle>
-                      <DialogDescription className="text-lg pt-4">
-                        Please contact us at:
-                        <br />
-                        <span className="font-bold text-gray-900 select-all">contact@clicknbookhome.com</span>
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-               </Dialog>
+              <Button variant="ghost" className="font-semibold text-gray-700 hover:text-gray-900">Sign In</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="bg-[#FFDD32] text-gray-900 hover:bg-[#FFE865] font-bold shadow-sm">
+                    List Property
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>List Your Property</DialogTitle>
+                    <DialogDescription className="text-lg pt-4">
+                      Please contact us at:
+                      <br />
+                      <span className="font-bold text-gray-900 select-all">contact@clicknbookhome.com</span>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
